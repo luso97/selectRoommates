@@ -1,0 +1,22 @@
+
+<div class="container">
+<form [formGroup]="formPunts" class="form-container" (submit)="submit()">
+    <div formArrayName="punts"
+            *ngFor="let item of punts.controls; let i = index;">
+            <div class="childs">
+                <mat-label class="marRig">{{piso.habitantes[i]}}</mat-label>
+            
+                <mat-radio-group [formControlName]="i">
+                    <mat-radio-button value="1" [value]="1">1</mat-radio-button>
+                    <mat-radio-button value="2" [value]="2">2</mat-radio-button>
+                    <mat-radio-button value="3" [value]="3">3</mat-radio-button>
+                    <mat-radio-button value="4" [value]="4">4</mat-radio-button>
+                    <mat-radio-button value="5" [value]="5">5</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            
+              
+    </div>
+    <button type="submit" mat-button color="secondary">Add rating</button>
+</form>
+</div>

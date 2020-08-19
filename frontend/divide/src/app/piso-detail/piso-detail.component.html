@@ -1,0 +1,26 @@
+<div class="form-container">
+    <form [formGroup]="formNewPiso" >
+        <mat-form-field class="example-full-width" flex="100%"  appearance="outline">
+          <mat-label>Name of rooms</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+        <h3>Rooms</h3>
+        <div formArrayName="pisos"
+            *ngFor="let item of pisos.controls; let i = index;">
+            <mat-form-field class="example-full-width" flex="100%"  appearance="fill">
+                <input matInput [formControlName]="i">
+            </mat-form-field>
+            <button mat-button (click)="deletePiso(i)">Delete</button>
+        </div>
+        <button mat-button (click)="addPiso()">Add room</button>
+        <div formArrayName="habitants"
+            *ngFor="let item of habitants.controls; let i = index;">
+            <mat-form-field class="example-full-width" flex="100%"  appearance="fill">
+                <input matInput [formControlName]="i">
+            </mat-form-field>
+            <button mat-button (click)="deleteHab(i)">Delete</button>
+        </div>
+        <button mat-button (click)="addHabitant()">Add habitant</button>
+        <button mat-button (click)="submit()" color="primary" flex="100%">Create</button>
+    </form>
+  </div>

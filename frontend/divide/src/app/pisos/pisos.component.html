@@ -1,0 +1,27 @@
+<div class="form-container">
+
+  <form [formGroup]="formPiso" (submit)="submit()">
+      <mat-form-field class="example-full-width" flex="100%"  appearance="outline">
+        <mat-label>Id or name of rooms</mat-label>
+        <input matInput placeholder="Ex. Pizza" placeholder="Id or name of rooms" formControlName="pisoIdName">
+      </mat-form-field>
+      
+      <button mat-button type="submit" color="primary" flex="100%">Search</button>
+  </form>
+</div>
+<div *ngIf="pisoAct">
+  <mat-list *ngFor='let name of piso.habitantes'>
+    <mat-list-item>{{name}}<button mat-button (click)="addRating(name)" >Add rating</button><label *ngIf="names.includes(name)">Rating already added</label></mat-list-item>
+  </mat-list>
+</div>
+<button mat-button color="primary" (click)="calculateRooms()">Calculate rooms</button>
+<mat-spinner diameter="35" *ngIf=cargando></mat-spinner>
+<div *ngIf="pisosFinales">
+  <mat-list *ngFor='let name of piso.habitantes;let i=index'>
+    <mat-list-item>{{name}} : Piso {{pisosFinales[i]+1}}</mat-list-item>
+  </mat-list>
+</div>
+<div *ngIf="!pisoAct">
+
+
+</div>
